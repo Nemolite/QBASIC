@@ -1,0 +1,82 @@
+REM Example 4 var 9 'Задача 4
+
+CLS
+DO ' Запускаем цикл
+PRINT "Enter array size (min=3)"
+INPUT x
+LOOP WHILE x < 3  ' Контролируем ввод, минимальная размерность 3Х3
+
+DIM arr$(x, x)  'Задаем символьный массив введенной пользователем размерости
+
+FOR i = 1 TO x
+  FOR j = 1 TO x
+     PRINT "Elemet of char (or string)"  ' Заполняем этот массив, берем от пользователя
+     INPUT arr$(i, j)
+
+  NEXT j
+NEXT i
+
+REM Output on display
+PRINT "Array"
+CLS
+FOR i = 1 TO x
+  FOR j = 1 TO x
+     LOCATE i + 10, j * 10   ' Контрольный ввод массива
+     PRINT arr$(i, j)
+
+  NEXT j
+NEXT i
+
+
+REM string replacement
+
+PRINT "Go to Enter for replacement"  ' Нужно поменять местами 1 и 3 стлобцы
+INPUT go     'выдерживаем паузу до нажатия Enter
+CLS
+FOR i = 1 TO x
+  FOR j = 1 TO x
+     
+     IF i = 1 THEN
+         tmp1$ = arr$(i, j)        ' Меняем стобцы
+         tmp3$ = arr$(i + 2, j)
+
+         arr$(i, j) = tmp3$
+         arr$(i + 2, j) = tmp1$    'Меняем стольбц при этом используем временные переменные tmp1 и tmp3 как буфер
+     
+      END IF
+  NEXT j
+NEXT i
+
+REM Output array                 
+
+CLS
+FOR i = 1 TO x
+  FOR j = 1 TO x
+     LOCATE i + 10, j * 10   'выводи получееный массив
+     PRINT arr$(i, j)
+
+  NEXT j
+NEXT i
+
+REM Output Diagonal
+PRINT "Go to Enter for output a diagonal"
+INPUT di  'ждем пока пользователь нажмет enter
+
+CLS
+
+FOR i = 1 TO x
+  FOR j = 1 TO x
+     IF i = j THEN
+        LOCATE i + 10, j * 10   'Выодим диагональ
+        PRINT arr$(i, j)
+     END IF
+
+
+  NEXT j
+NEXT i
+
+
+
+
+
+

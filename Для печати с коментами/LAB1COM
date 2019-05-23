@@ -1,0 +1,28 @@
+REM example 1  var 11  'Задача 1 Вариант 11, так как 2+9=11
+CLS
+conststr$ = "cc"  'Исковая строка по заданию
+PRINT "Here input a string , plase" ' Просим ввести строку
+INPUT userstr$ 'Записываем его в символьную пременную
+
+find = INSTR(1, userstr$, conststr$) ' находим вхождение
+
+IF find = 0 THEN  ' Если таковых нет 
+    PRINT "Don`t this is string" 'Выводим соответствующее сообщение
+ELSE
+        total = 0   ' А если есть то начинаем искать
+        DO
+        total = total + 1  ' Посчитываем их количество
+
+        find = INSTR(find + 1, userstr$, conststr$) ' Еще ищем в остатке строки
+
+        LOOP WHILE find <> 0 'До тех пор пока не найдем все
+   
+END IF  ' завершаем условие
+PRINT "total" ' Выводим 
+PRINT total ' количество вхождений
+
+
+
+
+
+

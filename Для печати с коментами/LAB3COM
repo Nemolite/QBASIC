@@ -1,0 +1,34 @@
+REM example 3 var 9  ' Задание 3 вариант 9
+CLS
+' Исходные значения из задания
+a = 5
+b = 16
+xstep = .1
+y = 0
+fan = 0
+min = 10000  ' условное число, можно изменить на большее
+max = -10000  ' условное число можно изменить на меньшее
+'это искомый диапозон, если не работает то расширяем
+FOR i = a TO b STEP xstep ' Запускаем цикл с заданным шагом
+    
+   fan = (i ^ i) / (EXP(i) + i ^ 3) 'Вычисляем значение
+   y = y + fan ' суммируем
+
+REM minimum
+   IF min > fan THEN min = fan  ' Находим минимальное
+REM maximum
+   IF max < fan THEN max = fan   ' Находим максимальное
+
+NEXT i  ' Завершаем цикл
+
+LOCATE 1
+PRINT "Calulating the amount y in increment x=0,1"
+PRINT "is done by a student"
+' Выводим значения на дисплей
+LOCATE 5
+PRINT "Minimum", min
+LOCATE 6
+PRINT "Maxsimum", max
+LOCATE 4
+PRINT "Total y= ", y
+
